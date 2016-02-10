@@ -9,6 +9,7 @@ import edu.esprit.domain.BirthRegistration;
 
 @Remote
 public interface GestionBirthRegistrationRemote {
+	
 	Boolean addBirthRegistration(BirthRegistration birthRegistration);
 	Boolean deleteBirthRegistration(BirthRegistration birthRegistration);
 	Boolean updateBirthRegistration(BirthRegistration birthRegistration);
