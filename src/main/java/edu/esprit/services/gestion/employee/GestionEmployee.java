@@ -85,7 +85,8 @@ public class GestionEmployee implements GestionEmployeeRemote, GestionEmployeeLo
 	@Override
 	public Employee authentificate(String login, String pwd) {
 		Employee employee=null;
-		Query query = entityManager.createQuery("select e from Employee e where e.login=:l and e.pwd=:p");
+		Query query = entityManager.createQuery("select e from Employee e where e.login=:l and e.password=:p");
+		System.out.println(login+" "+pwd);
 		query.setParameter("l", login).setParameter("p", pwd);
 		try {
 			employee = (Employee) query.getSingleResult();
