@@ -24,7 +24,7 @@ public class Claim implements Serializable {
 	@ManyToOne
 	private Citizen citizen ; 
 	@ManyToOne
-	private Employee employee; 
+	private Employee employee;
 	
 	
 	public Citizen getCitizen() {

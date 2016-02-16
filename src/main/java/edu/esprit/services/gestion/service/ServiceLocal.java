@@ -1,4 +1,4 @@
-package edu.esprit.egov.service;
+package edu.esprit.services.gestion.service;
 
 import javax.ejb.Local;
 
