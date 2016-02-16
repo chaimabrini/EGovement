@@ -3,6 +3,7 @@ package edu.esprit.domain;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.sql.Blob;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -19,8 +20,10 @@ public class CinRequest implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idCinRequest;
 	private String birthExcerpt;
-	private String residenceCertificate;
-	private String photoId;
+	@Lob
+	private  byte[] residenceCertificate;
+	@Lob
+	private  byte[] photoId;
 	private String requestState;
 	private Date requestDate;
 	private Date responseDate;
@@ -72,20 +75,8 @@ public class CinRequest implements Serializable {
 	public void setBirthExcerpt(String birthExcerpt) {
 		this.birthExcerpt = birthExcerpt;
 	}   
-	public String getResidenceCertificate() {
-		return this.residenceCertificate;
-	}
-
-	public void setResidenceCertificate(String residenceCertificate) {
-		this.residenceCertificate = residenceCertificate;
-	}   
-	public String getPhotoId() {
-		return this.photoId;
-	}
-
-	public void setPhotoId(String photoId) {
-		this.photoId = photoId;
-	}   
+	 
+	
 	public String getRequestState() {
 		return this.requestState;
 	}
@@ -93,6 +84,19 @@ public class CinRequest implements Serializable {
 	public void setRequestState(String requestState) {
 		this.requestState = requestState;
 	}   
+	
+	public byte[] getResidenceCertificate() {
+		return residenceCertificate;
+	}
+	public void setResidenceCertificate(byte[] residenceCertificate) {
+		this.residenceCertificate = residenceCertificate;
+	}
+	public byte[] getPhotoId() {
+		return photoId;
+	}
+	public void setPhotoId(byte[] photoId) {
+		this.photoId = photoId;
+	}
 	public Date getRequestDate() {
 		return this.requestDate;
 	}

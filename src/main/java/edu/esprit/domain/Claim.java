@@ -21,12 +21,28 @@ public class Claim implements Serializable {
 	private String textClaim;
 	private String mail;
 	private String state;
+	private String type; 
 	@ManyToOne
 	private Citizen citizen ; 
 	@ManyToOne
 	private Employee employee; 
+	@ManyToOne
+	private Employee admin;
 	
+	private String response ;
 	
+	public String getResponse() {
+		return response;
+	}
+	public void setResponse(String response) {
+		this.response = response;
+	}
+	public Employee getAdmin() {
+		return admin;
+	}
+	public void setAdmin(Employee admin) {
+		this.admin = admin;
+	}
 	public Citizen getCitizen() {
 		return citizen;
 	}
@@ -79,6 +95,12 @@ public class Claim implements Serializable {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
 	}
    
 }

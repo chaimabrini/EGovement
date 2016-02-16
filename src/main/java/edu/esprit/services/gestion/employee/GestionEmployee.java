@@ -94,5 +94,18 @@ public class GestionEmployee implements GestionEmployeeRemote, GestionEmployeeLo
 		}
 		return employee;
 	}
+
+	@Override
+	public Employee FindAllEmployeeById(int id) {
+		Employee employee=null;
+		Query query = entityManager.createQuery("select e from Employee e where e.idEmployee=:id ");
+		query.setParameter("id", id);
+		try {
+			employee = (Employee) query.getSingleResult();
+		} catch (Exception e) {
+			employee = null;
+		}
+		return employee;
+	}
     
 }

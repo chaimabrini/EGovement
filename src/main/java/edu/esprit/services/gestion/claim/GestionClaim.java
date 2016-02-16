@@ -103,8 +103,33 @@ public class GestionClaim implements GestionClaimLocal , GestionClaimRemote {
 	@Override
 	public List<Claim> findClaimsByAgent(Employee employee) {
 		Query query=entityManager.createQuery(""
-				+ "select e from Claim e WHERE e.employee = :employee");
-		query.setParameter("employee", employee);
+				+ "select e from Claim e WHERE e.employee = :employee and e.type = :type");
+		query.setParameter("employee", employee).setParameter("type", 0);
+		try {
+			return query.getResultList();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	@Override
+	public Claim findClaimById(int id) {
+		Query query=entityManager.createQuery(""
+				+ "select e from Claim e WHERE e.idClaim = :id");
+		query.setParameter("id", id);
+		try {
+			return (Claim)query.getSingleResult();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	@Override
+	public List<Claim> findClaimClient() {
+		String type="1";
+		Query query=entityManager.createQuery(""
+				+ "select e from Claim e WHERE e.type = :type");
+		query.setParameter("type", type);
 		try {
 			return query.getResultList();
 		} catch (Exception e) {

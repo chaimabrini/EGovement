@@ -130,8 +130,12 @@ public class GestionCinRequest implements GestionCinRequestRemote, GestionCinReq
 	}
 	@Override
 	public List<CinRequest> findAllCinRequest() {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			Query query=entityManager.createQuery("select c from CinRequest c");
+			return query.getResultList();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 }

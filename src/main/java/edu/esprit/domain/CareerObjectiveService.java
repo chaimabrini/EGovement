@@ -3,6 +3,7 @@ package edu.esprit.domain;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -20,7 +21,8 @@ public class CareerObjectiveService implements Serializable {
 	private Integer idCareer;
 	private String cin;
 	private String b3;
-	private String birthcertificate;
+	@Lob
+	private  byte[] birthcertificate;
 	private String giroAccount;
 	private String requestState;
 	private Date requestDate;
@@ -106,13 +108,14 @@ public class CareerObjectiveService implements Serializable {
 	public void setB3(String b3) {
 		this.b3 = b3;
 	}   
-	public String getBirthcertificate() {
-		return this.birthcertificate;
+ 
+	
+	public byte[] getBirthcertificate() {
+		return birthcertificate;
 	}
-
-	public void setBirthcertificate(String birthcertificate) {
+	public void setBirthcertificate(byte[] birthcertificate) {
 		this.birthcertificate = birthcertificate;
-	}   
+	}
 	public String getGiroAccount() {
 		return this.giroAccount;
 	}

@@ -15,5 +15,6 @@ public interface GestionEmployeeRemote {
 	Employee findEmployeeByCin(String cin);
 	List<Employee> findAllEmployee();
 	Employee authentificate(String login,String pwd);
+	Employee FindAllEmployeeById(int id);
 	
 }

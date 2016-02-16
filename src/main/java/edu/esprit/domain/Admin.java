@@ -2,6 +2,8 @@ package edu.esprit.domain;
 
 import edu.esprit.domain.Employee;
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -12,6 +14,8 @@ import javax.persistence.*;
 @DiscriminatorValue(value="admin")
 public class Admin extends Employee implements Serializable {
 
+	@OneToMany(mappedBy="admin")
+	private List<Claim> claimlist; 
 	private static final long serialVersionUID = 1L;
 
 	public Admin() {

@@ -3,6 +3,7 @@ package edu.esprit.domain;
 import java.io.Serializable;
 import java.lang.Integer;
 import java.lang.String;
+import java.sql.Blob;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -18,7 +19,8 @@ public class BirthRegistration implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer idBirthRegistration;
-	private String marriageContract;
+	@Lob
+	private byte[] marriageContract;
 	private String cin;
 	private String childName;
 	private Date birthDate;
@@ -65,13 +67,14 @@ public class BirthRegistration implements Serializable {
 	public void setIdBirthRegistration(Integer idBirthRegistration) {
 		this.idBirthRegistration = idBirthRegistration;
 	}   
-	public String getMarriageContract() {
-		return this.marriageContract;
+	  
+	
+	public byte[] getMarriageContract() {
+		return marriageContract;
 	}
-
-	public void setMarriageContract(String marriageContract) {
+	public void setMarriageContract(byte[] marriageContract) {
 		this.marriageContract = marriageContract;
-	}   
+	}
 	public String getCin() {
 		return this.cin;
 	}

@@ -2,6 +2,7 @@ package edu.esprit.domain;
 
 import java.io.Serializable;
 import java.lang.Integer;
+import java.sql.Blob;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -22,8 +23,9 @@ public class RoadTaxService implements Serializable {
 	private Date requestDate;
 	private Date responseDate;
 	private String response;
-	private String cin;
-	private String drivingLicense ; 
+	private  String cin;
+	@Lob
+	private  byte[] drivingLicense ; 
 	@ManyToOne
 	private Citizen citizen ; 
 	@ManyToOne
@@ -81,10 +83,10 @@ public class RoadTaxService implements Serializable {
 	public void setCin(String cin) {
 		this.cin = cin;
 	}
-	public String getDrivingLicense() {
+	public byte[] getDrivingLicense() {
 		return drivingLicense;
 	}
-	public void setDrivingLicense(String drivingLicense) {
+	public void setDrivingLicense(byte[] drivingLicense) {
 		this.drivingLicense = drivingLicense;
 	}
 	public static long getSerialversionuid() {
@@ -103,5 +105,6 @@ public class RoadTaxService implements Serializable {
 	public void setIdRoadTaxService(Integer idRoadTaxService) {
 		this.idRoadTaxService = idRoadTaxService;
 	}
+
    
 }
