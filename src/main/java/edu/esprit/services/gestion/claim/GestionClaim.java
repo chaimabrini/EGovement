@@ -68,12 +68,9 @@ public class GestionClaim implements GestionClaimLocal , GestionClaimRemote {
 
 	@Override
 	public List<Claim> findAllClaim() {
-		Query query=entityManager.createQuery("select e from Claim e");
-		try {
-			return query.getResultList();
-		} catch (Exception e) {
-			return null;
-		}
+		Query query=entityManager.createQuery("select c from Claim c");
+		return query.getResultList();
+		
 	}
 
 	@Override

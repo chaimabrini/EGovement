@@ -22,6 +22,6 @@ public interface GestionCinRequestRemote {
 	CinRequest findCinRequestByService(Service service);
 	CinRequest findCinRequestByAgent(Agent agent);
 	List<CinRequest> findAllCinRequestByRequestState(String state);
-	List<CinRequest> findAllResidenceCertificate(CinRequest cinreqyuest);
+	List<CinRequest> findAllResidenceCertificate(CinRequest cinRequest);
 	List<CinRequest> findAllCinRequest() ;
 }

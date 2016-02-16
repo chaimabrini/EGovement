@@ -24,9 +24,9 @@ public class Etablishment implements Serializable {
 	private String description;
 	private String contact;
 	private Integer phonenumber;
-	@OneToMany(mappedBy="etablishment")
+	@OneToMany(fetch = FetchType.EAGER,mappedBy="etablishment",cascade = CascadeType.ALL)
 	private List<Agent> listAgents; 
-	@OneToMany(mappedBy="etablishment")
+	@OneToMany(fetch = FetchType.EAGER,mappedBy="etablishment",cascade = CascadeType.ALL)
 	private List<Service> listService; 
 	private static final long serialVersionUID = 1L;
 
@@ -74,6 +74,18 @@ public class Etablishment implements Serializable {
 
 	public void setPhonenumber(Integer phonenumber) {
 		this.phonenumber = phonenumber;
+	}
+	public List<Agent> getListAgents() {
+		return listAgents;
+	}
+	public void setListAgents(List<Agent> listAgents) {
+		this.listAgents = listAgents;
+	}
+	public List<Service> getListService() {
+		return listService;
+	}
+	public void setListService(List<Service> listService) {
+		this.listService = listService;
 	}
    
 }

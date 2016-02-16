@@ -25,9 +25,12 @@ public class Claim implements Serializable {
 	@ManyToOne
 	private Citizen citizen ; 
 	@ManyToOne
+
 	private Employee employee; 
 	@ManyToOne
 	private Employee admin;
+
+
 	
 	private String response ;
 	
